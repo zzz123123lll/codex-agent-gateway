@@ -64,7 +64,8 @@ test('real Windows setup preflight honors isolated CODEX_HOME and performs no in
  const env={...f.env,CODEX_HOME:codexState};
  const run=()=>spawnSync('pwsh.exe',['-NoProfile','-File',path.join(f.root,'scripts/setup.ps1'),'-CheckOnly','-TraeExecutable',f.exe],{env,encoding:'utf8',windowsHide:true,timeout:20000});
  const fresh=run();assert.equal(fresh.status,0,fresh.stderr);const plan=JSON.parse(fresh.stdout);
- assert.equal(plan.codexRoot,codexState);assert.equal(plan.skillDirectory,path.join(codexState,'skills/trae-executor'));assert.equal(plan.mcpExists,false);assert.equal(plan.mutationsPerformed,false);assert.equal(fs.existsSync(f.state),false);assert.equal(fs.existsSync(f.config),false);
+ // Windows can expand an 8.3 alias while preserving the same isolated directory.
+ assert.equal(fs.realpathSync.native(plan.codexRoot),fs.realpathSync.native(codexState));assert.equal(plan.skillDirectory,path.join(plan.codexRoot,'skills/trae-executor'));assert.equal(fs.existsSync(path.join(codexState,'skills')),false);assert.equal(plan.mcpExists,false);assert.equal(plan.mutationsPerformed,false);assert.equal(fs.existsSync(f.state),false);assert.equal(fs.existsSync(f.config),false);
  const raw='[mcp_servers.trae-gateway]\ncommand="node"\nargs=["C:/another-gateway/dist/platform/mcp.js"]\n';fs.writeFileSync(path.join(codexState,'config.toml'),raw);
  const conflict=run();assert.notEqual(conflict.status,0);assert.match(conflict.stderr,/Another trae-gateway/);assert.equal(fs.readFileSync(path.join(codexState,'config.toml'),'utf8'),raw);assert.equal(fs.existsSync(f.state),false);assert.equal(fs.existsSync(f.config),false);
 });
