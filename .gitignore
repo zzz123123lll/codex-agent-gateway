@@ -1,0 +1,17 @@
+node_modules/
+data/
+work/
+*.zip
+*.vsix
+*.sha256
+*.log
+.env
+.env.*
+*.backup-*
+api-token
+connection.json
+service.lock
+watch.lock
+
+# Generated distribution; build or download release assets
+dist/

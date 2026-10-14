@@ -1,0 +1,43 @@
+[
+  {
+    "kind": "open",
+    "frameKeys": [
+      "sessionId",
+      "kind"
+    ]
+  },
+  {
+    "kind": "message",
+    "frameKeys": [
+      "sessionId",
+      "kind",
+      "json"
+    ],
+    "envelopeKeys": [
+      "id",
+      "type",
+      "channel",
+      "result"
+    ],
+    "id": 191,
+    "type": "response",
+    "channel": "session:get"
+  },
+  {
+    "kind": "message",
+    "frameKeys": [
+      "sessionId",
+      "kind",
+      "json"
+    ],
+    "envelopeKeys": [
+      "id",
+      "type",
+      "channel",
+      "result"
+    ],
+    "id": "agent-v3-probe-192",
+    "type": "response",
+    "channel": "session:get"
+  }
+]

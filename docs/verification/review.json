@@ -1,0 +1,192 @@
+{
+  "reviewedAt": "2026-10-12T10:22:22.932Z",
+  "reviewer": "independent_review",
+  "method": "Read-only source inspection plus independently authored inline offline reproductions against built dist",
+  "checks": [
+    {
+      "name": "WB_CANCEL_THREE_IDLE_RELEASE",
+      "passed": true,
+      "evidence": {
+        "status": "cancelled",
+        "holdsCapacity": false,
+        "nativeCancels": 1
+      },
+      "elapsedMs": 62
+    },
+    {
+      "name": "WB_NEVER_SENT_EXPLICIT_RETRY",
+      "passed": true,
+      "evidence": {
+        "round": 2,
+        "status": "running",
+        "nativeSends": 1,
+        "fixtureReceiptRequiresActualSend": true
+      },
+      "elapsedMs": 23
+    },
+    {
+      "name": "REWORK_QUEUE_QUOTA_PRESERVES_HISTORY",
+      "passed": true,
+      "evidence": {
+        "queued": 100,
+        "historyUnchanged": true
+      },
+      "elapsedMs": 319
+    },
+    {
+      "name": "HTTP_INHERITED_ACTIONS_ARE_UNKNOWN",
+      "passed": true,
+      "evidence": {
+        "constructor": 404,
+        "toString": 404,
+        "verifiedProtoRouteStatus": 404
+      },
+      "elapsedMs": 39
+    },
+    {
+      "name": "MCP_INHERITED_NAMES_ARE_UNKNOWN",
+      "passed": true,
+      "evidence": {
+        "constructor": "UNKNOWN_TOOL",
+        "toString": "UNKNOWN_TOOL",
+        "verifiedProtoToolError": "UNKNOWN_TOOL"
+      },
+      "elapsedMs": 13
+    },
+    {
+      "name": "WB_CLOSED_BRIDGE_RECONNECTION",
+      "passed": true,
+      "evidence": {
+        "channels": 2,
+        "reusedClosedBridge": false,
+        "state": "idle"
+      },
+      "elapsedMs": 2
+    },
+    {
+      "name": "SDK_REQUEST_DEADLINE_ABORT_CLEANUP",
+      "passed": true,
+      "evidence": {
+        "error": "REQUEST_TIMEOUT",
+        "elapsedMs": 33
+      },
+      "elapsedMs": 35
+    },
+    {
+      "name": "CONCURRENCY_ENV_OVERRIDE_STRICT",
+      "passed": true,
+      "evidence": {
+        "override": 7,
+        "savedFallback": 2,
+        "invalidRejected": 5,
+        "settingsUnchanged": true
+      },
+      "elapsedMs": 7
+    },
+    {
+      "name": "CONNECTION_STARTED_AT_AND_ORDERLY_CLOSE",
+      "passed": true,
+      "evidence": {
+        "startedAt": "2026-10-12T10:14:54.944Z",
+        "pidMatched": true,
+        "connectionWithdrawn": true,
+        "lockReleased": true
+      },
+      "elapsedMs": 26
+    },
+    {
+      "name": "WB_CANONICAL_RESPONSE_AND_REVISION_GUARD",
+      "passed": true,
+      "elapsedMs": 2,
+      "evidence": {
+        "responseEnvelopeWorks": true,
+        "responseErrorPropagates": true,
+        "legacyResultEnvelopeWorks": true,
+        "staleParserClosed": 1,
+        "sameRevisionReused": true,
+        "closedRevisionRecreated": true,
+        "generationIdsDistinct": true,
+        "mismatchedReceiptChannelRejected": true,
+        "correctHistoryReceiptAccepted": true
+      }
+    }
+  ],
+  "passed": 10,
+  "failed": 0,
+  "snapshot": {
+    "src/application/task-service.ts": "8f8d3e5387d4af7f66e325ceebd13b3635d321fbd9b931408c1a4639eea8951e",
+    "src/transport/http.ts": "d6d9b65ccd43e7f64ff1d169de82f1491458a04c4e572ff003bff5b71083288d",
+    "src/transport/mcp.ts": "8a1d1a26cd0d85a75d6737341282ba9d8dda188d7d0d3070a2ee4d8152855c7c",
+    "src/transport/client.ts": "51df5183cdfe8f17d9465220ecc4134c74094b08dbe434c1e755b9c0666f6bc7",
+    "src/runtime/settings.ts": "4a851474f32cc524055eca2074f4d268704df5977ba868410679977307cd56a8",
+    "src/runtime/lifecycle.ts": "58b3a64a39525bf34ab37cc27ea48e1cc2c4da16b4b74914e80b6f8d48f7840e",
+    "src/infrastructure/workbuddy/provider.ts": "d2548aaf59dcdc64bea90e532cbd8b7ec0c4939d1d3150aa12810239ad611bf8",
+    "src/infrastructure/workbuddy/bridge.ts": "cb7bc3a7a94b5d360fd798d496f167586be3167b151af8c31e59eab2edf6dc12",
+    "dist/infrastructure/workbuddy/provider.js": "3a9fdf0a7925a547a39fc4ff031dbc7ccf8ab96919a36fd2f0fc820cb83c8c69",
+    "dist/infrastructure/workbuddy/bridge.js": "401c40b26b0fe6c49dada9f7db0ced8be826432c719723724389b4932d80a42b"
+  },
+  "filesChangedDuringReview": [],
+  "priorFindingsResolved": true,
+  "architecture": "Substantive modular implementation; thin compatibility facades",
+  "security": "No confirmed high-severity issue found in reviewed paths; not a security certification",
+  "nativeCalls": 0,
+  "modelCalls": 0,
+  "githubCalls": 0,
+  "remaining": [],
+  "fixtureCorrection": "First retry reproduction began its newly created session in busy state while receipt mock incorrectly always returned true. Corrected fixture starts idle and only acknowledges a genuine mock send; this was a review fixture error.",
+  "historicalFindings": [
+    {
+      "code": "WB_NATIVE_RPC_UNVERIFIED",
+      "status": "RESOLVED_BY_ROOT_PROBE",
+      "previousProblem": "Existing-session session:get timed out before native response envelope/version cache fix",
+      "fix": "Canonical response envelope parsing, response error propagation and implementation revision cache guard",
+      "rootEvidenceFile": "native-interop-summary.json",
+      "rootCheckedAt": "2026-10-12T10:19:57.667Z",
+      "independentOfflineVerification": "WB_CANONICAL_RESPONSE_AND_REVISION_GUARD plus 10 WorkBuddy module tests passed",
+      "realProbeByIndependentReviewer": false,
+      "originalLocalEvidenceSha256": "4ff4c635a3399fbf2970cf2faff51a810c33428c01f98504f747910dfbcd5574"
+    }
+  ],
+  "rootActualNativeProof": {
+    "source": "Root-agent actual read-only probe; independently reviewed saved JSON, did not call desktop",
+    "file": "native-interop-summary.json",
+    "checkedAt": "2026-10-12T10:19:57.667Z",
+    "workbuddy": {
+      "state": "idle",
+      "workspaceAvailable": true,
+      "historicalDispatchReceipt": true
+    },
+    "trae": {
+      "status": "cancelled",
+      "nativeStatus": "WaitingInput"
+    },
+    "modelPromptOrNewTaskExecution": false,
+    "originalLocalEvidenceSha256": "4ff4c635a3399fbf2970cf2faff51a810c33428c01f98504f747910dfbcd5574"
+  },
+  "limitations": [
+    "Independent reviewer performed offline tests only; real-native read-only evidence comes from root-agent probe",
+    "Read-only native interoperability plus offline tests does not prove a fresh 0.3.0 end-to-end model execute/rework/accept loop",
+    "No multi-machine, 24-hour unattended stability or legal clean-room certification claimed"
+  ],
+  "testRerun": {
+    "command": "node --test test/workbuddy-unit.test.mjs",
+    "tests": 10,
+    "passed": 10,
+    "failed": 0,
+    "durationMs": 370.0593,
+    "nativeCalls": 0
+  },
+  "updatedSnapshot": {
+    "src/application/task-service.ts": "8f8d3e5387d4af7f66e325ceebd13b3635d321fbd9b931408c1a4639eea8951e",
+    "src/transport/http.ts": "d6d9b65ccd43e7f64ff1d169de82f1491458a04c4e572ff003bff5b71083288d",
+    "src/transport/mcp.ts": "8a1d1a26cd0d85a75d6737341282ba9d8dda188d7d0d3070a2ee4d8152855c7c",
+    "src/transport/client.ts": "51df5183cdfe8f17d9465220ecc4134c74094b08dbe434c1e755b9c0666f6bc7",
+    "src/runtime/settings.ts": "4a851474f32cc524055eca2074f4d268704df5977ba868410679977307cd56a8",
+    "src/runtime/lifecycle.ts": "58b3a64a39525bf34ab37cc27ea48e1cc2c4da16b4b74914e80b6f8d48f7840e",
+    "src/infrastructure/workbuddy/provider.ts": "d2548aaf59dcdc64bea90e532cbd8b7ec0c4939d1d3150aa12810239ad611bf8",
+    "src/infrastructure/workbuddy/bridge.ts": "fb8b7efa74094eb70579a3b9249ea64f5ded4e8076908931419c3eade195db98",
+    "dist/infrastructure/workbuddy/provider.js": "3a9fdf0a7925a547a39fc4ff031dbc7ccf8ab96919a36fd2f0fc820cb83c8c69",
+    "dist/infrastructure/workbuddy/bridge.js": "599a268c956c655e206010db16de4905e72ebff4e63f0c620b1eae55bafe4888"
+  },
+  "publicEvidenceNote": "This copy retains independent code/test results, refers to a sanitized native summary, and preserves hashes of the original local native evidence under originalLocalEvidenceSha256."
+}

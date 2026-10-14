@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-12T10:19:01.422Z",
+  "source": "read-only transactional snapshot of actual v0.2.1 SQLite; no original writes",
+  "records": 20,
+  "events": 237,
+  "result": "pass",
+  "checks": [
+    "all saved JSON fields unchanged",
+    "idempotency fingerprints unchanged",
+    "native session/attempt/round/review/digest preserved",
+    "all event content and cursor IDs preserved"
+  ],
+  "snapshotSha256": "50d023abb10a5db18c7990dcb7a6d5a9d67fb0fd33c9c3fbd24dc57ea8ab9fdb"
+}

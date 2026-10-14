@@ -1,0 +1,11 @@
+{
+  "version": "0.3.0",
+  "files": {
+    "test/independent.test.mjs": "372a4518e9ffec5cc2927e0743f4e253935cf8a9dcba826a325e04bcadd2e2e4",
+    "docs/REIMPLEMENTATION-SPEC.md": "dc4791a94231f8536296a3701c0b33561284f4d67dd4ffe8dddd2bece8c4a9fd",
+    "test/codex-lifecycle.test.mjs": "7effc7d00dd8e018d2564685d872f6cd5fd9f174e134c0fffb085d9997411ce1",
+    "test/codex-native.test.mjs": "2d9554106c99ae231abbd3b4a183ac867816036d8a17a1a26f8afd46fa8f981c"
+  },
+  "result": "All original frozen hashes match",
+  "protocolErrata": "../PROTOCOL-ERRATA.md"
+}

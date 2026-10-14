@@ -1,0 +1,231 @@
+{
+  "method": "exact longest token sequence after removal of whitespace/comments; static diagnostic, not an originality/legal certification",
+  "preservedLocalComponents": [
+    "desktop.ts",
+    "platform/trae.ts"
+  ],
+  "files": [
+    {
+      "file": "cli.ts",
+      "kind": "rewritten implementation",
+      "bytes": 2909,
+      "sha256": "bd9586d4dcca206097e3e0cb3cda9c511b9c85afb60cd0a28b8f2973c50782dd",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/platform/cli.ts",
+        "tokens": 11
+      }
+    },
+    {
+      "file": "application/task-service.ts",
+      "kind": "rewritten implementation",
+      "bytes": 12150,
+      "sha256": "8f8d3e5387d4af7f66e325ceebd13b3635d321fbd9b931408c1a4639eea8951e",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/platform/engine.ts",
+        "tokens": 29
+      }
+    },
+    {
+      "file": "domain/contracts.ts",
+      "kind": "rewritten implementation",
+      "bytes": 2951,
+      "sha256": "96b82d66e3d29810cd45259a64cc8162ae1f3dc58dea6576067717822ae6157d",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/platform/contracts.ts",
+        "tokens": 49
+      }
+    },
+    {
+      "file": "domain/lifecycle.ts",
+      "kind": "rewritten implementation",
+      "bytes": 1634,
+      "sha256": "e74a2beee8ba69df0e9465466c95edb8e39d83e63491cbc1fe2ade7023dc0f21",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/platform/cli.ts",
+        "tokens": 5
+      }
+    },
+    {
+      "file": "infrastructure/results.ts",
+      "kind": "rewritten implementation",
+      "bytes": 3948,
+      "sha256": "60dbee4be9d40ddaf6611b4e792b32b7fb0c33fc474cd15babd0df9c766ef51e",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/platform/engine.ts",
+        "tokens": 23
+      }
+    },
+    {
+      "file": "infrastructure/sqlite-repository.ts",
+      "kind": "rewritten implementation",
+      "bytes": 5035,
+      "sha256": "79718f7a8a76c7a5c570c73b09a3019aaaf5443953bc3f2bf68903660ae6dde3",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/platform/store.ts",
+        "tokens": 32
+      }
+    },
+    {
+      "file": "infrastructure/workbuddy/actor.ts",
+      "kind": "rewritten implementation",
+      "bytes": 2708,
+      "sha256": "dffd283685381c891438610ab0030c6b64d84ba35b10c78a49163125591a67bf",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/native-desktop-trigger.ts",
+        "tokens": 9
+      }
+    },
+    {
+      "file": "infrastructure/workbuddy/bridge.ts",
+      "kind": "rewritten implementation",
+      "bytes": 7715,
+      "sha256": "fb8b7efa74094eb70579a3b9249ea64f5ded4e8076908931419c3eade195db98",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/native-desktop-trigger.ts",
+        "tokens": 28
+      }
+    },
+    {
+      "file": "infrastructure/workbuddy/cdp.ts",
+      "kind": "rewritten implementation",
+      "bytes": 5404,
+      "sha256": "b158122c45c9c76b948c2cc53443bf9fb5e3f92b226f6ee4397b34d195e43bf9",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/native-desktop-trigger.ts",
+        "tokens": 28
+      }
+    },
+    {
+      "file": "infrastructure/workbuddy/journal.ts",
+      "kind": "rewritten implementation",
+      "bytes": 5062,
+      "sha256": "1172614f2809d25d642d73666cbe4bd22848b5f3b02f60e1c030ac95929b68bd",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/native-desktop-trigger.ts",
+        "tokens": 9
+      }
+    },
+    {
+      "file": "infrastructure/workbuddy/provider.ts",
+      "kind": "rewritten implementation",
+      "bytes": 14420,
+      "sha256": "d2548aaf59dcdc64bea90e532cbd8b7ec0c4939d1d3150aa12810239ad611bf8",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/native-desktop-trigger.ts",
+        "tokens": 16
+      }
+    },
+    {
+      "file": "platform/client.ts",
+      "kind": "compatibility facade",
+      "bytes": 40
+    },
+    {
+      "file": "platform/contracts.ts",
+      "kind": "compatibility facade",
+      "bytes": 40
+    },
+    {
+      "file": "platform/engine.ts",
+      "kind": "compatibility facade",
+      "bytes": 159
+    },
+    {
+      "file": "platform/http.ts",
+      "kind": "compatibility facade",
+      "bytes": 38
+    },
+    {
+      "file": "platform/mcp.ts",
+      "kind": "rewritten implementation",
+      "bytes": 324,
+      "sha256": "cceb5dc5cacf2d90a793f392f2385a00f8a72999bee46f065f27e4ccfd9e1b06",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/platform/mcp.ts",
+        "tokens": 4
+      }
+    },
+    {
+      "file": "platform/store.ts",
+      "kind": "compatibility facade",
+      "bytes": 67
+    },
+    {
+      "file": "platform/ui.ts",
+      "kind": "compatibility facade",
+      "bytes": 36
+    },
+    {
+      "file": "platform/workbuddy-native.ts",
+      "kind": "compatibility facade",
+      "bytes": 185
+    },
+    {
+      "file": "platform/workbuddy.ts",
+      "kind": "compatibility facade",
+      "bytes": 150
+    },
+    {
+      "file": "runtime/lifecycle.ts",
+      "kind": "rewritten implementation",
+      "bytes": 3784,
+      "sha256": "58b3a64a39525bf34ab37cc27ea48e1cc2c4da16b4b74914e80b6f8d48f7840e",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/platform/cli.ts",
+        "tokens": 22
+      }
+    },
+    {
+      "file": "runtime/settings.ts",
+      "kind": "rewritten implementation",
+      "bytes": 5189,
+      "sha256": "4a851474f32cc524055eca2074f4d268704df5977ba868410679977307cd56a8",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/platform/cli.ts",
+        "tokens": 24
+      }
+    },
+    {
+      "file": "transport/client.ts",
+      "kind": "rewritten implementation",
+      "bytes": 5099,
+      "sha256": "51df5183cdfe8f17d9465220ecc4134c74094b08dbe434c1e755b9c0666f6bc7",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/platform/client.ts",
+        "tokens": 17
+      }
+    },
+    {
+      "file": "transport/http.ts",
+      "kind": "rewritten implementation",
+      "bytes": 11528,
+      "sha256": "d6d9b65ccd43e7f64ff1d169de82f1491458a04c4e572ff003bff5b71083288d",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/platform/http.ts",
+        "tokens": 24
+      }
+    },
+    {
+      "file": "transport/mcp.ts",
+      "kind": "rewritten implementation",
+      "bytes": 5373,
+      "sha256": "8a1d1a26cd0d85a75d6737341282ba9d8dda188d7d0d3070a2ee4d8152855c7c",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/platform/mcp.ts",
+        "tokens": 25
+      }
+    },
+    {
+      "file": "transport/ui.ts",
+      "kind": "rewritten implementation",
+      "bytes": 10989,
+      "sha256": "d162d0c279019005e2794cc3be8f1badf13478b57f7985428ec990777e9ed87c",
+      "longestExactTokenBlock": {
+        "upstreamFile": "src/platform/ui.ts",
+        "tokens": 39
+      }
+    }
+  ],
+  "manualReviewRequired": true,
+  "publicationNote": "Historical source-comparison snapshot. Raw code snippets omitted from the public export; statistics do not certify legal rights or clean-room development."
+}

@@ -1,0 +1,26 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+import {spawnSync} from 'node:child_process';
+
+const root=fileURLToPath(new URL('../',import.meta.url));
+const {version}=JSON.parse(fs.readFileSync(path.join(root,'package.json'),'utf8'));
+fs.mkdirSync(path.join(root,'work'),{recursive:true});
+const staging=fs.mkdtempSync(path.join(root,'work','vsix-'));
+fs.mkdirSync(path.join(staging,'extension'));
+const extension=JSON.parse(fs.readFileSync(path.join(root,'extension','package.json'),'utf8'));
+extension.version=version;
+fs.writeFileSync(path.join(staging,'extension','package.json'),JSON.stringify(extension,null,2)+'\n');
+fs.copyFileSync(path.join(root,'extension','bridge.cjs'),path.join(staging,'extension','bridge.cjs'));
+for(const notice of ['LICENSE','NOTICE.md'])fs.copyFileSync(path.join(root,notice),path.join(staging,'extension',notice));
+fs.writeFileSync(path.join(staging,'[Content_Types].xml'),'<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="json" ContentType="application/json"/><Default Extension="cjs" ContentType="application/javascript"/><Default Extension="vsixmanifest" ContentType="text/xml"/></Types>');
+fs.writeFileSync(path.join(staging,'extension.vsixmanifest'),`<?xml version="1.0"?><PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011"><Metadata><Identity Language="en-US" Id="codex-trae-bridge" Version="${version}" Publisher="local-codex"/><DisplayName>Codex TRAE Desktop Bridge</DisplayName><Description xml:space="preserve">Authenticated local supervision bridge</Description><Tags>AI</Tags><Categories>Other</Categories><Properties><Property Id="Microsoft.VisualStudio.Code.Engine" Value="^1.82.0"/></Properties></Metadata><Installation><InstallationTarget Id="Microsoft.VisualStudio.Code"/></Installation><Dependencies/><Assets><Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true"/></Assets></PackageManifest>`);
+const files=['[Content_Types].xml','extension.vsixmanifest','extension/package.json','extension/bridge.cjs','extension/LICENSE','extension/NOTICE.md'].map(file=>{const data=fs.readFileSync(path.join(staging,file));return {file,bytes:data.length,sha256:crypto.createHash('sha256').update(data).digest('hex')};});
+fs.writeFileSync(path.join(staging,'MANIFEST.json'),JSON.stringify({version,files},null,2));
+const archive=path.join(root,'codex-trae-bridge.vsix');
+const quote=value=>"'"+value.replaceAll("'","''")+"'";
+const result=spawnSync('pwsh.exe',['-NoProfile','-NonInteractive','-Command',`$ErrorActionPreference='Stop'; Add-Type -AssemblyName System.IO.Compression.FileSystem; if(Test-Path -LiteralPath ${quote(archive)}){Remove-Item -LiteralPath ${quote(archive)}}; [System.IO.Compression.ZipFile]::CreateFromDirectory(${quote(staging)},${quote(archive)})`],{stdio:'inherit',windowsHide:true});
+if(result.error||result.status!==0)throw Error('VSIX packaging failed');
+fs.writeFileSync(archive+'.sha256',crypto.createHash('sha256').update(fs.readFileSync(archive)).digest('hex')+'  '+path.basename(archive)+'\n');
+console.log(archive);

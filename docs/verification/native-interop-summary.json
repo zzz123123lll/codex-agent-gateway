@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-12T10:19:57.667Z",
+  "version": "0.3.0",
+  "scope": "Read-only installed desktop/native-session interoperability; no model prompt or task execution",
+  "workbuddy": {
+    "installedProcessOwnerVerified": true,
+    "nativeState": "idle",
+    "workspaceIdentityReturned": true,
+    "historicalDispatchReceipt": true
+  },
+  "trae": {
+    "desktopBridgeReturnedTaskIdentity": true,
+    "status": "cancelled",
+    "nativeStatus": "WaitingInput"
+  },
+  "originalLocalEvidenceSha256": "4ff4c635a3399fbf2970cf2faff51a810c33428c01f98504f747910dfbcd5574",
+  "sanitization": "Native session identifiers, process identifiers and private workspace paths omitted"
+}

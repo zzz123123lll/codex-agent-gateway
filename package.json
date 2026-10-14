@@ -1,0 +1,45 @@
+{
+  "name": "codex-trae-gateway",
+  "version": "0.3.1",
+  "private": true,
+  "type": "module",
+  "description": "Codex plans and independently reviews; TRAE CN / WorkBuddy execute with their own tools. Windows supervision gateway.",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/cli.js serve",
+    "test": "node --import tsx --test test/*.test.mjs test/*.test.ts",
+    "mcp": "node dist/platform/mcp.js",
+    "install:desktop": "node scripts/install.mjs",
+    "package": "node scripts/package.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.21.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzz123123lll/codex-agent-gateway.git"
+  },
+  "homepage": "https://github.com/zzz123123lll/codex-agent-gateway#readme",
+  "bugs": {
+    "url": "https://github.com/zzz123123lll/codex-agent-gateway/issues"
+  },
+  "keywords": [
+    "codex",
+    "trae",
+    "workbuddy",
+    "mcp",
+    "multi-agent",
+    "windows",
+    "supervision"
+  ]
+}
